@@ -1,0 +1,15 @@
+# Using Systemd
+
+[Unit]
+Description=nginx:latest
+Requires=docker.service
+After=docker.service
+
+[Service]
+ExecStartPre=-/usr/bin/docker kill nginx
+ExecStartPre=-/usr/bin/docker rm nginx
+ExecStartPre=-/usr/bin/docker pull pomirleanu/nginx
+ExecStart=/usr/bin/docker run --name nginx -d -v /path/to/my/files:/var/www/html pomirleanu/php-fpm
+
+[Install]
+WantedBy=multi-user.target

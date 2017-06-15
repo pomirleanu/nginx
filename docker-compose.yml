@@ -1,0 +1,7 @@
+version: '2'
+services:
+  nginx:
+    container_name: nginx
+    image: pomirleanu/nginx
+    volumes:
+      - /path/to/your/app:/var/www/html

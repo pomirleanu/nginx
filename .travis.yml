@@ -1,0 +1,8 @@
+language: bash
+services: docker
+
+script:
+- docker build -t pomirleanu/nginx .
+
+after_script:
+- docker images
